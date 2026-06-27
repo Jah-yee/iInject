@@ -119,7 +119,7 @@ then
 		
 		if [ "$?" -eq "0" ]
 		then
-			printf "${GREEN}%s${NORMAL}\n" " "$workDirectory"/Payload/*/PlugIns deleted sucessfully"
+			printf "${GREEN}%s${NORMAL}\n" " "$workDirectory"/Payload/*/PlugIns deleted successfully"
 		else
 			printf "${RED}%s${NORMAL}\n" "Error while deleting "$workDirectory"/Payload/*/PlugIns"
 			cleanUp
@@ -148,7 +148,7 @@ insert_dylib --strip-codesig --inplace @executable_path/"$dylibName" "$binaryNam
 
 if [ "$?" -eq "0" ]
 then
-	printf "${GREEN}%s${NORMAL}\n" "Binary "$binaryName"  patched sucessfully"
+	printf "${GREEN}%s${NORMAL}\n" "Binary "$binaryName"  patched successfully"
 else
 	printf "${RED}%s${NORMAL}\n" "Error while patching binary "$binaryName""
 	cleanUp
@@ -167,7 +167,7 @@ then
 
 	if [ "$?" -eq "0" ]
 	then
-		printf "${GREEN}%s${NORMAL}\n" " Gadget downloaded sucessfully"
+		printf "${GREEN}%s${NORMAL}\n" " Gadget downloaded successfully"
 	else
 		printf "${RED}%s${NORMAL}\n" "Error while downloading Gadget"
 		cleanUp
@@ -181,7 +181,7 @@ else
 	
 	if [ "$?" -eq "0" ]
 	then
-		printf "${GREEN}%s${NORMAL}\n" "Gadget copied sucessfully"
+		printf "${GREEN}%s${NORMAL}\n" "Gadget copied successfully"
 	else
 		printf "${RED}%s${NORMAL}\n" "Error while coping Gadget"
 		cleanUp
@@ -204,7 +204,7 @@ zip -r "$ipaFilename"-patched.ipa Payload/ >> "$debugDir" 2>&1
 
 if [ "$?" -eq "0" ]
 then
-	printf "${GREEN}%s${NORMAL}\n" ""$workDirectory"/"$ipaFilename"-patched.ipa created sucessfully"
+	printf "${GREEN}%s${NORMAL}\n" ""$workDirectory"/"$ipaFilename"-patched.ipa created successfully"
 else
 	printf "${RED}%s${NORMAL}\n" "Error while creating "$workDirectory"/"$ipaFilename"-patched.ipa"
 	cleanUp	
@@ -218,7 +218,7 @@ isign -v -o "$ipaFilename"-patched-isigned.ipa "$ipaFilename"-patched.ipa >> "$d
 
 if [ "$?" -eq "0" ]
 then
-	printf "${GREEN}%s${NORMAL}\n" ""$workDirectory"/"$ipaFilename"-patched-isigned.ipa created sucessfully"
+	printf "${GREEN}%s${NORMAL}\n" ""$workDirectory"/"$ipaFilename"-patched-isigned.ipa created successfully"
 else
 	printf "${RED}%s${NORMAL}\n" "Error while signing "$workDirectory"/"$ipaFilename"-patched.ipa"
 	cleanUp	
@@ -232,7 +232,7 @@ ideviceinstaller -i "$ipaFilename"-patched-isigned.ipa | tee -a "$debugDir"
 
 if [ "$?" -eq "0" ]
 then
-	printf "${GREEN}%s${NORMAL}\n" ""$ipaFilename"-patched-isigned.ipa installed sucessfully"
+	printf "${GREEN}%s${NORMAL}\n" ""$ipaFilename"-patched-isigned.ipa installed successfully"
 else
 	printf "${RED}%s${NORMAL}\n" "Error while installing "$ipaFilename"-patched-isigned.ipa"
 	cleanUp	
